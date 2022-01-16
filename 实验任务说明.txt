@@ -1,0 +1,50 @@
+任务描述
+本关任务：使用机器学习相关知识完成互联网虚假新闻检测。
+代码和报告在普通作业：互联网虚假新闻检测 提交。
+
+相关知识
+为了完成本关任务，你需要掌握：1.如何清洗数据，2.如何将文本转化为词向量，3.如何进行虚假新闻的检测。
+
+数据集介绍
+数据集分为训练集和测试集两部分。
+下载地址: 见普通作业：互联网虚假新闻检测。
+训练集
+
+    train_data = csv.reader(open("train.csv"))
+# train_data is a list of dictionaries
+# for example
+train_data[0] = {"content": "新闻文本", "coment":"评论",label": 0}
+注意标签只有0和-1和1，分别是无需判断，虚假新闻和真实新闻，即这是一个三分类问题。
+
+测试集
+
+test_data = csv.reader(open("test.csv"))
+# test_data is a list of dictionaries
+# for example
+test_data[0] = {"content": "新闻文本","coment":"评论"}
+编程要求
+无，可以使用任何方法或者模型。
+
+测试说明
+请将预测的测试集标签复制至右侧的编辑器中，格式如下
+
+1
+0
+-1
+1
+1
+...
+...
+五、评测标准
+基于以下混淆矩阵(confusion matrix)，采用Precision，Recall，F1-score三个指标评价算法结果，要对比3种以上算法的结果，可进一步自由发挥，做算法参数敏感性的实验及对比分析等。
+
+其中，TP是真阳例，TN是真阴例，FP是假阳例，FN是假阴例。
+1.Precision
+       精确率( 查准率 )，即为在预测为1的样本中，预测正确（实际为1）的人占比，,用混淆矩阵中的字母可表示为：
+Precision= TP/(TP+FP)
+2. Recall
+       召回率（查全率），即为在实际为1的样本中，预测为1的样本占比,用混淆矩阵中的字母可表示为：
+Recall= TP/(TP+FN)
+3. F1-score
+    F1分数（F1 Score），是统计学中用来衡量二分类模型精确度的一种指标。它同时兼顾了分类模型的准确率和召回率。F1分数可以看作是模型准确率和召回率的一种加权平均，它的最大值是1，最小值是0。 
+    F1=2*Precision * Recall /( Precision + Recall)
